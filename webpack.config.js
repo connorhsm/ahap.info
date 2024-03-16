@@ -1,10 +1,12 @@
 var path = require('path')
 var webpack = require('webpack')
 var fs = require('fs')
+const { VueLoaderPlugin } = require('vue-loader')
 
 var rootPath = "/";
 
 module.exports = {
+  mode: 'production',
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './public/dist'),
@@ -67,7 +69,8 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: '[name].[ext]?[hash]',
+          esModule: false
         }
       }
     ]
@@ -79,40 +82,26 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    historyApiFallback: {index: "/index.html"},
-    noInfo: true,
-    overlay: true,
-    disableHostCheck: true,
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    client: {
+      overlay: true,
+    },
+    historyApiFallback: {index: "/index.html"}
   },
   performance: {
     hints: false
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         ONETECH_MOD_NAME: JSON.stringify(process.env.ONETECH_MOD_NAME),
         ONETECH_MOD_URL: JSON.stringify(process.env.ONETECH_MOD_URL),
       },
       ROOT_PATH: JSON.stringify(rootPath),
     })
   ],
-  devtool: '#eval-source-map'
-}
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
+  devtool: 'eval-source-map'
 }
