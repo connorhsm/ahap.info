@@ -41,7 +41,7 @@ class MainProcessor {
 
     console.log("Importing objects...");
     gameData.importObjects();
-    gameData.importCategories();
+    //gameData.importCategories();
     gameData.importTransitions();
     gameData.importBiomes();
 
