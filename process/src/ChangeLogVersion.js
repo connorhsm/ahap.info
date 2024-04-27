@@ -11,9 +11,9 @@ class ChangeLogVersion {
   }
 
   tag() {
-    if (this.id == 0) return "OneLife_vStart";
+    if (this.id == 0) return "AnotherPlanet_vStart";
     if (this.isUnreleased()) return "master";
-    return "OneLife_v" + this.id;
+    return "AnotherPlanet_v" + this.id;
   }
 
   populateObjects() {
