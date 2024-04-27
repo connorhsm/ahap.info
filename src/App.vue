@@ -113,10 +113,10 @@ export default {
       this.$router.replace("/" + path.join("/"));
     },
     unreleasedContentUrl() {
-      return "https://edge.onetech.info" + window.location.pathname;
+      return "https://edge.ahap.info" + window.location.pathname;
     },
     releasedContentUrl() {
-      return "https://onetech.info" + window.location.pathname;
+      return "https://ahap.info" + window.location.pathname;
     }
   },
   metaInfo: {
