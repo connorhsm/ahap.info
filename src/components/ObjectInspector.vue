@@ -60,9 +60,6 @@
           Added in
           <router-link :to="versionUrl">v{{object.data.version}}</router-link>
         </li>
-        <li v-else-if="modName">
-          Added in {{modName}}
-        </li>
         <li v-else>
           <router-link to="/versions/unreleased">Unreleased</router-link>
         </li>
@@ -220,9 +217,6 @@ export default {
     },
     versionUrl() {
       return "/versions/" + this.object.data.version;
-    },
-    modName() {
-      return process.env.ONETECH_MOD_NAME;
     },
     hasFoodBonus() {
       return parseInt(GameObject.foodBonus) > 0;
