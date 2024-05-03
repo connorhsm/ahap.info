@@ -12,7 +12,7 @@ source_node() {
     nvm use
 }
 
-cd /usr/local/twotech
+cd /var/www/ahap.info/onetech
 if ./updater/changes_upstream.sh; then
     echo "$(timestamp) Upstream changes made to twotech, pulling and updating..."
     git pull
