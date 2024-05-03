@@ -89,7 +89,7 @@ node process download
 Setup cron to run the update script every so often, this will watch both Git repos and update the site when they change.
 
 ```
-*/5 * * * * /path/to/onetech/bin/update_onetech
+*/5 * * * * bash /var/www/ahap.info/onetech/updater/update.sh >> /var/www/ahap.info/onetech/updater/update.log 2>&1
 ```
 
 That's it!
