@@ -1,9 +1,10 @@
 # ahap.info
 
 > Another Hour Another Life Crafting Reference
-> Forked from Onetech for One Hour One Life
 
-View here: https://ahap.info
+https://ahap.info
+
+> Forked from Onetech for One Hour One Life
 
 This site is built using the game data directly from [the game data repository](https://github.com/jasonrohrer/AnotherPlanetData).
 It shows the relationships between items, and lets you explore how things are crafted.
