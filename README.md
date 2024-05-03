@@ -1,15 +1,17 @@
-# onetech
+# ahap.info
 
-> One Hour One Life Crafting Reference
+> Another Hour Another Life Crafting Reference
+> Forked from Onetech for One Hour One Life
 
-View here: https://onetech.info
+View here: https://ahap.info
 
-This site is built using the game data directly from [the game data repository](https://github.com/jasonrohrer/OneLifeData7).
+This site is built using the game data directly from [the game data repository](https://github.com/jasonrohrer/AnotherPlanetData).
 It shows the relationships between items, and lets you explore how things are crafted.
 
 Unlike the wiki, which contains "wisdom" about the game, this site contains only "knowledge".
+<!--
 This is a reference. For a better guide, go to the [game wiki](https://onehouronelife.gamepedia.com/One_Hour_One_Life_Wiki).
-
+-->
 
 ## Build Setup
 
@@ -22,10 +24,9 @@ The project is split into two parts:
 
 ``` bash
 # install dependencies
-npm install
+npm clean-install
 
-# serve with hot reload at localhost:8080
-# to simulate edge subdomain visit edge.lvh.me:8080
+# serve with hot reload at localhost:8080 and edge.localhost:8080
 npm run dev
 
 # build for production with minification
@@ -45,7 +46,7 @@ To get it running, you will need to install [ImageMagick](https://www.imagemagic
 cd process
 
 # install dependencies
-npm install
+npm clean-install
 
 cd ..
 

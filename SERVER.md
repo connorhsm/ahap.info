@@ -1,10 +1,10 @@
-# Server Setup for onetech
+# Server Setup for ahap.info (onetech)
 
-Here's how I setup a VPS to run onetech.info.
+Here's how I setup a VPS to run ahap.info.
 
 ## Basic Setup
 
-I first setup a $5/month droplet on [Digital Ocean](https://www.digitalocean.com) with Ubuntu 18.04 and followed these instructions.
+I first setup a $5/month droplet on [Digital Ocean](https://www.digitalocean.com) with Ubuntu 22.04 and followed these instructions.
 
 1. [Initial Server Setup](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-22-04)
 2. [Passwordless sudo](https://serverfault.com/a/596988)
@@ -18,7 +18,7 @@ I first setup a $5/month droplet on [Digital Ocean](https://www.digitalocean.com
 Clone the onetech repo and build it:
 
 ```
-git clone https://github.com/Kazetsukai/onetech.git
+git clone https://github.com/connorhsm/ahap.info
 npm install
 npm run build
 ```
@@ -66,7 +66,7 @@ gzip_min_length 256;
 gzip_disable "MSIE [1-6].(?!.*SV1)";
 ```
 
-Make sure to setup onetech.info domain to point to the droplet.
+Make sure to setup ahap.info domain to point to the droplet.
 
 
 ## Process Script
@@ -86,7 +86,7 @@ node process download
 
 ## Cron
 
-Setup cron to run the update script every 5 minutes, this will watch both Git repos and update the site when they change.
+Setup cron to run the update script every so often, this will watch both Git repos and update the site when they change.
 
 ```
 */5 * * * * /path/to/onetech/bin/update_onetech

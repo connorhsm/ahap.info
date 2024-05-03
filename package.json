@@ -1,8 +1,15 @@
 {
-  "name": "onetech",
-  "description": "One Hour One Life Crafting Guide",
+  "name": "ahap.info",
+  "description": "Another Hour Another Planet Crafting Guide",
   "version": "1.0.0",
   "author": "Daniel Tebbutt <moeruze.burning@gmail.com>",
+  "contributors": [
+    {
+      "name": "Connor Smith",
+      "email": "connorhsmith@gmail.com",
+      "url": "http://connorhsm.dev"
+    }
+  ],
   "license": "MIT",
   "private": true,
   "scripts": {
