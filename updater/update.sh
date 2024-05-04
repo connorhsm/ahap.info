@@ -5,11 +5,18 @@ timestamp() {
    echo "[$(date +%F_%T)]"
 }
 
+source_node() {
+    export NVM_DIR="/home/ahap/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    cd $1
+    nvm use
+}
+
 cd /var/www/ahap.info/onetech
 if ./updater/changes_upstream.sh; then
     echo "$(timestamp) Upstream changes made to twotech, pulling and updating..."
     git pull
-    nvm use
+    source_node $(pwd)
     npm clean-install
     npm run build
     # Update packages for the process module also
@@ -24,7 +31,7 @@ fi
 if ./updater/changes_upstream.sh "./process/OneLifeData7"; then
     echo "$(timestamp) Upstream changes made to game data, running data update..."
     # git pull is not necessary here as the following command will handle that.
-    nvm use
+    source_node $(pwd)
     node process download
 else
     echo "$(timestamp) No upstream changes to data, moving on..."
