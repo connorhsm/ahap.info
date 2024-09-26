@@ -8,7 +8,7 @@ class MainProcessor {
   }
 
   staticDir(edge) {
-    if (edge && !process.env.ONETECH_MOD_NAME) {
+    if (edge) {
       return this.processDir + "/../public/static-edge";
     }
     return this.processDir + "/../public/static";
