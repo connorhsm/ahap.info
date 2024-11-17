@@ -83,6 +83,7 @@ class MainProcessor {
       return null;
     }
 
+    gameData.checkoutMaster();
     return gameData.unprocessedVersion(this.staticDir(false), !this.doDownload);
   }
 }
