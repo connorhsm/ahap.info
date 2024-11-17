@@ -83,10 +83,6 @@ class MainProcessor {
       return null;
     }
 
-    if (process.env.ONETECH_MOD_NAME) {
-      return null;
-    }
-
     return gameData.unprocessedVersion(this.staticDir(false), !this.doDownload);
   }
 }
