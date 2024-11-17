@@ -22,7 +22,7 @@ source_node() {
 }
 
 cd /var/www/ahap.info/onetech
-if ./updater/changes_upstream.sh; then
+if changes_upstream; then
     echo "$(timestamp) Upstream changes made to tech site, pulling and updating..."
     git pull
     source_node $(pwd)
@@ -41,7 +41,7 @@ if [[ ! -d "./process/OneLifeData7" ]]; then
     echo "$(timestamp) OneLifeData7 not found, running data update..."
     source_node $(pwd)
     node process download
-elif ./updater/changes_upstream.sh "./process/OneLifeData7"; then
+elif changes_upstream "./process/OneLifeData7"; then
     echo "$(timestamp) Upstream changes made to game data, running data update..."
     # git pull is not necessary here as the following command will handle that.
     source_node $(pwd)
