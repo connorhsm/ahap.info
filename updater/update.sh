@@ -43,7 +43,7 @@ if [[ ! -d "./process/OneLifeData7" ]]; then
   node process download
 elif changes_upstream "./process/OneLifeData7"; then
   echo "$(timestamp) Upstream changes made to game data, running data update..."
-  git pull is not necessary here as the following command will handle that.
+  # git pull is not necessary here as the following command will handle that.
   source_node $(pwd)
   node process download
 else
