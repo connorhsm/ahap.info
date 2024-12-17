@@ -9,19 +9,25 @@ changes_upstream() {
   # Pass repo directory as arg 1 or defaults to current
   repo="${1:-.}"
 
+  # Checkout main/master
+  git -C $repo checkout $(git -C $repo rev-parse --abbrev-ref origin/HEAD | cut -d / -f 2)
+
   git -C $repo fetch
   test $(git -C $repo rev-parse HEAD) != $(git -C $repo rev-parse @{upstream})
   return $?
 }
 
 source_node() {
-  export NVM_DIR="/home/ahap/.nvm"
+  export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   cd $1
   nvm use
 }
 
-cd /var/www/ahap.info/onetech
+if [[ -d "/var/www/ahap.info/onetech" ]]; then
+  cd /var/www/ahap.info/onetech
+fi
+
 if changes_upstream; then
   echo "$(timestamp) Upstream changes made to tech site, pulling and updating..."
   git pull
